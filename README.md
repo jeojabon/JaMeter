@@ -1,66 +1,32 @@
-# BonMeter (아이온2 딜미터기)
+# JaMeter (자터기) — 아이온2 딜미터기 · AION2 DPS Meter
 
-아이온2 오버레이 딜미터기 + HUD. **exe 파일 한 개**로 실행합니다.
+**자터기(JaMeter)** 는 아이온2(AION2)용 무료 딜미터기입니다. 게임 위에 실시간 DPS·기여도를 표시하고, 크라우드 통계로 직업·전투력 대비 효율 순위를 제공합니다.
 
-- 실시간 딜미터 (파티원별 DPS / 누적 피해 / 기여도 / 전투력)
-- 전투 상세 기록 (준 피해 · 받은 피해 · 받은 회복 · 버프 업타임 · 도핑)
-- 스킬 레벨 / 특성 표시, 직업 아이콘, 기여도 5% 경고
-- FPS / 핑 / 시간 상태 스트립, 정각 음성 알림
-- 블룸버그 터미널 스타일 다크 UI, 게임 성능에 영향 없음
+**JaMeter** is a free, lightweight **DPS meter / damage meter overlay for AION2 (아이온2)**. It shows real-time DPS and damage contribution over the game, plus crowd-sourced efficiency rankings by class and combat power — a combat analytics HUD for the Korean MMORPG AION2 (NCSOFT).
 
-## 다운로드
+- 🌐 웹사이트 · 순위/통계 (rankings & stats): **https://jameter.net**
+- ⬇️ 다운로드 (download): [최신 릴리스 / Latest release](https://github.com/jeojabon/BonMeter/releases/latest) — Windows · 무료 · 설치 불필요 (free, no install)
 
-[Releases](../../releases/latest) 에서 `BonMeter.zip` 을 받아 압축을 풀고 `BonMeter.exe` 를 실행하세요.
+## 주요 기능 · Features
+- 실시간 DPS · 기여도 오버레이 — real-time DPS & damage contribution overlay
+- 전투력 대비 효율 랭킹 — combat-power (gear) efficiency ranking, grades S+ ~ D
+- 스킬별 피해 · 타수 · 치명 상세 — per-skill damage / hit / crit breakdown
+- 허수아비 측정 — training dummy DPS test
+- 던전 리더보드 · 직업 통계 — dungeon leaderboards & class statistics
+- 파티원 익명 통계 — anonymous party member stats
 
-> 크롬 등 브라우저가 `BonMeter.exe` 직접 다운로드를 막을 수 있어 ZIP 으로 받는 것을 권장합니다.
->
-> **백신/윈도우 경고 안내**: 서명되지 않은 개인 제작 프로그램이라 일부 백신이 오탐(false positive)으로 잡거나 "Windows의 PC 보호" 경고가 뜰 수 있습니다. 이 프로그램은 게임 네트워크 패킷만 **읽기만** 하며 게임 파일·메모리를 건드리지 않습니다. 경고가 뜨면 [추가 정보] → [실행], 백신이 막으면 예외(허용) 등록 후 사용하세요.
+## 설치 · Install
+1. [릴리스](https://github.com/jeojabon/BonMeter/releases/latest)에서 `JaMeter.exe` 다운로드
+2. 우클릭 → 관리자 권한으로 실행 (패킷 측정에 필요 · run as administrator)
+3. 자동 업데이트 지원 (auto-update)
 
-## 준비물
+미터기는 게임 클라이언트나 메모리를 변조하지 않고, 네트워크 전투 패킷을 수동으로 관찰(passive)합니다.
 
-**Npcap** 을 먼저 설치해야 합니다. 이것만 별도 설치입니다.
+## 개인정보 · Privacy
+데이터는 옵트인(기본 꺼짐)일 때만 익명으로 수집됩니다. See the [Privacy Policy](https://jameter.net/privacy).
 
-- https://npcap.com/#download
-- 설치 중 "WinPcap API-compatible Mode" 항목이 보이면 체크해 주세요.
-- 이미 Wireshark 를 쓰고 있다면 대부분 이미 깔려 있습니다.
+---
 
-.NET 은 따로 설치할 필요 없습니다. Windows 10/11 에 기본 포함된 .NET Framework 4.x 로 동작합니다.
+비공식 팬 제작 도구입니다 · Unofficial, fan-made tool — not affiliated with, sponsored by, or endorsed by AION2 or NCSOFT. All game names and images are property of their respective owners.
 
-## 실행
-
-`BonMeter.exe` 를 더블클릭하면 됩니다.
-
-- 관리자 권한을 물어봅니다. 허용해 주세요. 패킷 캡처(Npcap)와 FPS 측정(ETW)에 둘 다 필요합니다.
-- "Windows의 PC 보호" 파란 창이 뜨면 **[추가 정보] → [실행]** 을 눌러 주세요. 개인이 만든 서명 없는 프로그램이라 뜨는 경고입니다.
-- 첫 실행 때 필요한 파일을 자동으로 만들고 받습니다. 인터넷 연결이 필요하고, 몇 초 걸립니다.
-
-## 파일은 전부 `문서\BonMeter` 폴더에 만들어집니다
-
-exe 는 바탕화면이든 어디든 그냥 두고 실행하면 됩니다. **exe 옆에는 아무 파일도 생기지 않습니다.**
-
-첫 실행 때 내 문서(Documents) 안에 `BonMeter` 폴더가 만들어지고 그 안에 이런 것들이 들어갑니다.
-
-| 파일 | 내용 |
-|---|---|
-| `BonMeter.ini` | 설정 파일 (직접 열어 수정 가능) |
-| `BonMeter_Settings.ps1` | 설정 창 |
-| `ClassIcons\` | 직업 아이콘 |
-| `SkillData\` `BuffData\` | 스킬 / 버프 이름 |
-| `meter_data\` | 보스 이름, DOT 목록 (자동 다운로드) |
-| `tools\` | PresentMon (FPS 측정, 자동 다운로드) |
-| `logs\` | 진단 로그 |
-
-## 문제가 있을 때
-
-**FPS 가 계속 `--` 로 나온다**
-관리자 권한으로 실행했는지 확인해 주세요. `문서\BonMeter\tools\PresentMon.exe` 다운로드가 막혔을 수도 있습니다.
-
-**미터기에 아무것도 안 잡힌다**
-Npcap 설치를 확인해 주세요. 백신이 패킷 캡처를 막고 있을 수도 있습니다.
-
-**그 외**
-`문서\BonMeter\logs\` 폴더 내용을 함께 [Issues](../../issues) 에 올려주시면 원인을 찾기 쉽습니다.
-
-## 참고
-
-이 프로그램은 게임 네트워크 패킷만 **읽습니다**. 게임 파일이나 메모리를 건드리지 않고, 게임에 아무것도 보내지 않습니다.
+<sub>Keywords: 아이온2 딜미터기, 자터기, 자미터기, 자미터, 아이온2 미터기, 아이온2 dps, 아이온2 DPS미터, 아이온2 전투 통계, 아이온2 순위, 아이온2 리더보드, 아이온2 허수아비 · AION2 DPS meter, AION2 damage meter, AION2 combat meter, AION2 DPS counter, damage tracker, combat tracker, dps overlay, game overlay HUD, MMORPG meter, Korean MMORPG, NCSOFT AION2.</sub>
