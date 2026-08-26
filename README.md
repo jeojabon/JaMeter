@@ -22,6 +22,15 @@
 
 미터기는 게임 클라이언트나 메모리를 변조하지 않고, 네트워크 전투 패킷을 수동으로 관찰(passive)합니다.
 
+## ⚠️ 백신 오탐 · Antivirus false positives
+코드 서명이 없는 개인 제작 도구라 백신·SmartScreen이 오탐할 수 있습니다 (악성코드 아님 — 실시간 패킷 측정·자동 업데이트가 휴리스틱에 걸립니다). 정식 서명 준비 중입니다.
+
+- **다운로드가 막히면** `JaMeter.exe` 대신 릴리스의 **`JaMeter.zip`** 을 받아 압축 해제
+- **SmartScreen** → "추가 정보" → "실행" · **Windows 보안** → 보호 기록에서 "허용"
+- 무결성: 릴리스의 `JaMeter.exe.sha256` 로 검증 · [VirusTotal](https://www.virustotal.com/gui/file/ac918e1be16f45e7715adb164d73819234a35fe73347105b06cf581a36abb421)
+
+_Unsigned fan-made tool: antivirus/SmartScreen may false-flag it (not malware; passive packet capture + auto-update trigger heuristics). If the download is blocked, grab **`JaMeter.zip`** from the release; on SmartScreen click **More info -> Run**. Code signing is in progress._
+
 ## 개인정보 · Privacy
 데이터는 옵트인(기본 꺼짐)일 때만 익명으로 수집됩니다. See the [Privacy Policy](https://jameter.net/privacy).
 
