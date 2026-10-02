@@ -1,41 +1,72 @@
-# JaMeter (자터기) — 아이온2 딜미터기 · AION2 DPS Meter
+# JaMeter — DPS Meter for Aion 2
 
-**자터기(JaMeter)** 는 아이온2(AION2)용 무료 딜미터기입니다. 게임 위에 실시간 DPS·기여도를 표시하고, 크라우드 통계로 직업·전투력 대비 효율 순위를 제공합니다.
+![JaMeter](docs/images/00-hero.png)
 
-**JaMeter** is a free, lightweight **DPS meter / damage meter overlay for AION2 (아이온2)**. It shows real-time DPS and damage contribution over the game, plus crowd-sourced efficiency rankings by class and combat power — a combat analytics HUD for the Korean MMORPG AION2 (NCSOFT).
+**JaMeter** is a free DPS meter for **Aion 2** (아이온2). It shows live DPS and party contribution over the game, breaks every fight down skill by skill, and adds you to anonymous crowd rankings on [jameter.net](https://jameter.net/en). It works on the **global servers** (NA West, NA East, Europe, Asia, Latin America) and on the Korean servers.
 
-- 🌐 웹사이트 · 순위/통계 (rankings & stats): **https://jameter.net**
-- ⬇️ 다운로드 (download): [최신 릴리스 / Latest release](https://github.com/jeojabon/JaMeter/releases/latest) — Windows · 무료 · 설치 불필요 (free, no install)
+- **Download:** [Latest release](https://github.com/jeojabon/JaMeter/releases/latest) — `JaMeter.exe`, Windows 10/11, free, no installer
+- **Website:** [jameter.net/en](https://jameter.net/en) · [Global DPS ranking](https://jameter.net/en/ranking)
+- **Community:** [Discord](https://discord.gg/v6TAwBCkQZ)
 
-## 주요 기능 · Features
-- 실시간 DPS · 기여도 오버레이 — real-time DPS & damage contribution overlay
-- 전투력 대비 효율 랭킹 — combat-power (gear) efficiency ranking, grades S+ ~ D
-- 스킬별 피해 · 타수 · 치명 상세 — per-skill damage / hit / crit breakdown
-- 허수아비 측정 — training dummy DPS test
-- 던전 리더보드 · 직업 통계 — dungeon leaderboards & class statistics
-- 파티원 익명 통계 — anonymous party member stats
+## Features
 
-## 설치 · Install
-1. [릴리스](https://github.com/jeojabon/JaMeter/releases/latest)에서 `JaMeter.exe` 다운로드
-2. 우클릭 → 관리자 권한으로 실행 (패킷 측정에 필요 · run as administrator)
-3. 자동 업데이트 지원 (auto-update)
+### Live overlay
+DPS, nDPS (outside party buffs removed), contribution, combat power and efficiency grade for every party member, plus boss HP, run timer and your rank after the fight.
 
-미터기는 게임 클라이언트나 메모리를 변조하지 않고, 네트워크 전투 패킷을 수동으로 관찰(passive)합니다.
+![Live overlay](docs/images/01-overlay.png)
 
-## ⚠️ 백신 오탐 · Antivirus false positives
-코드 서명이 없는 개인 제작 도구라 백신·SmartScreen이 오탐할 수 있습니다 (악성코드 아님 — 실시간 패킷 측정·자동 업데이트가 휴리스틱에 걸립니다). 정식 서명 준비 중입니다.
+### Combat details
+Every skill broken down: uses, hits, crit, front/back, perfect, smite, average hit and share of damage, with a DPS-over-time graph. Damage taken, healing received, buffs and consumables have their own tabs.
 
-- **다운로드가 막히면** `JaMeter.exe` 대신 릴리스의 **`JaMeter.zip`** 을 받아 압축 해제
-- **SmartScreen** → "추가 정보" → "실행" · **Windows 보안** → 보호 기록에서 "허용"
-- 무결성: 릴리스의 `JaMeter.exe.sha256` 로 검증 · [VirusTotal](https://www.virustotal.com/gui/file/ac918e1be16f45e7715adb164d73819234a35fe73347105b06cf581a36abb421)
+![Combat details](docs/images/02-combat-detail.png)
 
-_Unsigned fan-made tool: antivirus/SmartScreen may false-flag it (not malware; passive packet capture + auto-update trigger heuristics). If the download is blocked, grab **`JaMeter.zip`** from the release; on SmartScreen click **More info -> Run**. Code signing is in progress._
+### Skill tooltips
+Hover a skill for its description, specialties, cast time, cooldown, range and weapon — official client text in English.
 
-## 개인정보 · Privacy
-데이터는 옵트인(기본 꺼짐)일 때만 익명으로 수집됩니다. See the [Privacy Policy](https://jameter.net/privacy).
+![Skill tooltips](docs/images/03-skill-tooltip.png)
+
+### Combat speed cap analysis
+Measure a 60-second Training Scarecrow run at different combat speeds and JaMeter shows where more combat speed stops paying off for your character.
+
+![Combat speed cap analysis](docs/images/04-combat-speed.png)
+
+### Buff & cooldown alerts
+Pick the skills you care about per class and get voice, pop-up or floating-icon alerts when a buff ends or a cooldown is ready.
+
+![Buff & cooldown alerts](docs/images/05-buff-alerts.png)
+
+### Field boss alerts
+Spawn alerts for field and Abyss named bosses, by region, minutes ahead.
+
+![Field boss alerts](docs/images/06-field-boss.png)
+
+### Settings
+Columns, fonts, colors, layout and behavior of the meter are all adjustable. The interface switches to English automatically on an English Windows (or set it in the settings).
+
+![Settings](docs/images/07-settings.png)
+
+### Rankings on jameter.net
+With web sharing on, your boss fights join anonymous rankings by class and dungeon. Global-server records are ranked separately from Korea, which runs a different patch.
+
+![Rankings](docs/images/08-web-ranking.png)
+
+## Getting started
+1. Install [Npcap](https://npcap.com/) once (JaMeter reads network packets through it).
+2. Download `JaMeter.exe` from the [latest release](https://github.com/jeojabon/JaMeter/releases/latest) and run it. No installer; it updates itself.
+3. Start a fight. Measuring begins automatically.
+4. Optional: Settings → Web sharing → on, to join the rankings anonymously. It is off by default.
+
+## Safety and privacy
+- JaMeter reads the game's network packets passively through Npcap. It never reads or writes game memory, injects nothing and does not modify the client.
+- No meter is approved by NCSOFT. Use it at your own discretion.
+- Download JaMeter only from this repository's releases.
+- The exe is not code-signed yet, so SmartScreen or antivirus may warn about an unknown publisher. On SmartScreen choose **More info → Run anyway**.
+- Uploading stats is opt-in and off by default. Your character name stays hidden unless you choose to show it, and other players' names are never stored. You can delete your data from the settings at any time. See the [privacy policy](https://jameter.net/privacy).
 
 ---
 
-비공식 팬 제작 도구입니다 · Unofficial, fan-made tool — not affiliated with, sponsored by, or endorsed by AION2 or NCSOFT. All game names and images are property of their respective owners.
+Unofficial fan-made tool — not affiliated with, sponsored by, or endorsed by NCSOFT or Aion 2. Game names and images belong to their respective owners.
 
-<sub>Keywords: 아이온2 딜미터기, 자터기, 자미터기, 자미터, 아이온2 미터기, 아이온2 dps, 아이온2 DPS미터, 아이온2 전투 통계, 아이온2 순위, 아이온2 리더보드, 아이온2 허수아비 · AION2 DPS meter, AION2 damage meter, AION2 combat meter, AION2 DPS counter, damage tracker, combat tracker, dps overlay, game overlay HUD, MMORPG meter, Korean MMORPG, NCSOFT AION2.</sub>
+한국어 안내: [jameter.net](https://jameter.net)
+
+<sub>Keywords: Aion 2 DPS meter, AION2 damage meter, Aion 2 DPS ranking, Aion 2 leaderboard, Aion 2 combat meter, DPS overlay, global servers, 아이온2 딜미터기, 자터기.</sub>
